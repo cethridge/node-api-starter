@@ -94,6 +94,12 @@ app.get('/', (req, res) => {
   res.json({message: "NodeJS Starter Application"});
 });
 
+// Health Route - Always returns 200 when application is running
+app.get('/health', (req, res) => res.sendStatus(200));
+
+// Respond to favicon request with 204
+app.get('/favicon.ico', (req, res) => res.sendStatus(204));
+
 // Add any public API routes that are openly accessible here, prior to
 // using EXPRESS-JWT for Authorization Token checking.
 app.use('/public', publicRoutes);
